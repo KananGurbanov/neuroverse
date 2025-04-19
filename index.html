@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeuroVerse Dashboard</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Include Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Sidebar Navigation -->
+    <div id="sidebar">
+        <div class="logo">
+            <h3>NeuroVerse</h3>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#overview" class="nav-link"><i class="fas fa-tachometer-alt"></i> Overview</a></li>
+                <li><a href="#performance" class="nav-link"><i class="fas fa-chart-line"></i> Performance</a></li>
+                <li><a href="#settings" class="nav-link"><i class="fas fa-cogs"></i> Settings</a></li>
+                <li><a href="#real-time" class="nav-link"><i class="fas fa-sync-alt"></i> Real-time Performance</a></li>
+                <li><a href="#profile" class="nav-link"><i class="fas fa-user"></i> Profile</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div id="main-content">
+        <!-- Overview Section -->
+        <section id="overview" class="page-section">
+            <h2>Overview</h2>
+            <div class="overview-container">
+                <div class="stat-item">
+                    <h3>Weekly Performance</h3>
+                    <canvas id="weeklyPerformanceChart" width="400" height="200"></canvas>
+                </div>
+                <div class="stat-item">
+                    <h3>Modules Completed</h3>
+                    <p>12 Modules</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Performance Section -->
+        <section id="performance" class="page-section">
+            <h2>Performance Overview</h2>
+            <canvas id="performanceChart" width="400" height="200"></canvas>
+            <div class="stats">
+                <div><strong>Engagement Overview:</strong> 31.8 hours</div>
+                <div><strong>Daily Progress:</strong> 4.6 hours</div>
+                <div><strong>Completed Modules:</strong> 12 modules</div>
+            </div>
+        </section>
+
+        <!-- Settings Section -->
+        <section id="settings" class="page-section">
+            <h2>Settings</h2>
+            <div class="settings-card">
+                <h3>General Settings</h3>
+                <div class="setting-item">
+                    <label for="engagement-level">Engagement Level</label>
+                    <select id="engagement-level">
+                        <option value="high">High</option>
+                        <option value="medium">Medium</option>
+                        <option value="low">Low</option>
+                    </select>
+                </div>
+                <div class="setting-item">
+                    <label for="theme">Theme</label>
+                    <div class="theme-options">
+                        <button class="btn" id="light-theme">Light</button>
+                        <button class="btn" id="dark-theme">Dark</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="settings-card">
+                <h3>Notifications</h3>
+                <div class="setting-item">
+                    <label for="notifications-toggle">Enable Notifications</label>
+                    <input type="checkbox" id="notifications-toggle">
+                </div>
+                <div class="setting-item">
+                    <label for="email-notifications-toggle">Email Notifications</label>
+                    <input type="checkbox" id="email-notifications-toggle">
+                </div>
+            </div>
+
+            <div class="settings-card">
+                <h3>Cognitive Settings</h3>
+                <div class="setting-item">
+                    <label for="brainwave-pattern">Brainwave Pattern</label>
+                    <input type="text" id="brainwave-pattern" value="AI" disabled>
+                </div>
+                <div class="setting-item">
+                    <label for="cognitive-load">Cognitive Load</label>
+                    <input type="range" id="cognitive-load" min="0" max="100" value="50">
+                </div>
+            </div>
+
+            <div class="settings-card">
+                <h3>Language & Time Zone</h3>
+                <div class="setting-item">
+                    <label for="language-select">Language</label>
+                    <select id="language-select">
+                        <option value="en">English</option>
+                        <option value="es">Spanish</option>
+                        <option value="fr">French</option>
+                    </select>
+                </div>
+                <div class="setting-item">
+                    <label for="timezone-select">Time Zone</label>
+                    <select id="timezone-select">
+                        <option value="utc">UTC</option>
+                        <option value="pst">PST</option>
+                        <option value="est">EST</option>
+                    </select>
+                </div>
+            </div>
+
+            <button id="save-settings">Save Settings</button>
+        </section>
+
+        <!-- Real-time Performance Section -->
+        <section id="real-time" class="page-section">
+            <h2>Real-time Performance</h2>
+            <canvas id="realTimeChart" width="400" height="200"></canvas>
+            <div class="real-time-container">
+                <p><strong>Attention Level:</strong> 78%</p>
+                <p><strong>Focus Score:</strong> 85</p>
+            </div>
+        </section>
+
+        <!-- User Profile Section -->
+        <section id="profile" class="page-section">
+            <h2>User Profile</h2>
+            <div class="profile-container">
+                <div class="profile-header">
+                    <img src="assets/images/profile-pic.jpg" alt="Profile Picture" class="profile-pic">
+                    <div class="profile-info">
+                        <h3>John Doe</h3>
+                        <p><strong>Email:</strong> john.doe@example.com</p>
+                        <p><strong>Location:</strong> New York, USA</p>
+                    </div>
+                </div>
+                <div class="profile-bio">
+                    <h4>Bio</h4>
+                    <p>I'm a developer with a passion for creating smart systems that enhance learning experiences. My goal is to leverage AI and technology to build personalized educational tools.</p>
+                </div>
+                <div class="profile-actions">
+                    <button class="edit-profile">Edit Profile</button>
+                    <button class="logout">Log Out</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script src="js/chart.js"></script>
+</body>
+</html>
